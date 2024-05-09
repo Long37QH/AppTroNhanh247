@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NhaTro247</string>
+
+    <string name="nav_home">Danh Sách Phòng</string>
+    <string name="nav_lapphieu">Lập Phiếu</string>
+    <string name="nav_thongke">Thống Kê</string>
+    <string name="nav_taikhoan">Tài Khoản</string>
+    <string name="nav_doipass">Thay Mật Khẩu</string>
+    <string name="nav_dangxuat">Đăng Xuất</string>
+
+    <string name="open_navigation_drawer">Open navigation drawer</string>
+    <string name="close_navigation_drawer">Close navigation drawer</string>
+</resources>
