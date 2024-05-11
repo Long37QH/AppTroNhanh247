@@ -12,9 +12,14 @@ import androidx.fragment.app.Fragment;
 import com.example.nhatro247.R;
 
 public class DoiPassFragment extends Fragment {
+
+    private View mView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_doipass,container,false);
+        mView = inflater.inflate(R.layout.fragment_doipass,container,false);
+
+        return mView;
     }
 }

@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
@@ -48,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDraweLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        //anh xaj menu trai bat suj kiem click item trong menu
+        //anh xa menu trai bat suj kiem click item trong menu
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // xu ly mo app ba dau tu fragment home
+        // xu ly mo menu tu fragment home
         replaceFragment(new HomeFragment());
         navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 

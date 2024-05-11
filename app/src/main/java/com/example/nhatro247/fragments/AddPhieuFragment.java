@@ -11,15 +11,15 @@ import androidx.fragment.app.Fragment;
 
 import com.example.nhatro247.R;
 
-public class ThongKeFragment extends Fragment {
+public class AddPhieuFragment extends Fragment {
 
     private View mView;
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_thongke,container,false);
+        mView = inflater.inflate(R.layout.fragment_add_phieu,container,false);
+
 
         return mView;
     }

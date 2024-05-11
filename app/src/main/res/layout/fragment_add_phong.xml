@@ -3,15 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context="fragments.ThongKeFragment">
+    tools:context="fragments.AddPhongFragment">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="thong ke"
-        android:textStyle="bold"
-        android:textSize="24sp"/>
+        android:text="fragment add phong"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>

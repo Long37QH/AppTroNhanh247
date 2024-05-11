@@ -2,15 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@drawable/bgr_trang"
     android:padding="20dp"
-    android:background="#dff9fb">
+    tools:context="fragments.DoiPassFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="doi pass"
+    <EditText
+        android:id="@+id/inputUser"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_input_text"
+        android:hint= "admin"
+        android:textSize="16sp"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColor="#2f3640"
+        android:textColorHint="#2f3640"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        tools:layout_editor_absoluteX="40dp" />
+    <EditText
+        android:id="@+id/inputPass_cu"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_input_text"
+        android:hint="*****"
+        android:textSize="16sp"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColor="#2f3640"
+        android:textColorHint="#2f3640"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        tools:layout_editor_absoluteX="40dp" />
+    <EditText
+        android:id="@+id/inputPass_new"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_input_text"
+        android:hint="Nhập mật khảu mới"
+        android:textSize="16sp"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColor="#2f3640"
+        android:textColorHint="#2f3640"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        tools:layout_editor_absoluteX="40dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Cập Nhật"
+        android:backgroundTint="#F26522"
         android:textStyle="bold"
-        android:textSize="24sp"/>
+        android:textSize="16sp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        />
+
 
 </LinearLayout>
