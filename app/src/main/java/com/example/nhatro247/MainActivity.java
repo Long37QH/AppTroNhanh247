@@ -19,7 +19,7 @@ import com.example.nhatro247.fragments.LapPhieuFragment;
 import com.example.nhatro247.fragments.ThongKeFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDraweLayout;
     NavigationView navigationView;
 
