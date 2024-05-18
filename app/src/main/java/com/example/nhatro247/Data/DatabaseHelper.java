@@ -45,6 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "id_user INTEGER PRIMARY KEY," +
             "username TEXT," +
             "pass TEXT);";
+    private static final String insertAdminUser = "INSERT INTO tbl_user (id_user, username, pass) VALUES (1, 'admin', 'admin')";
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -55,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_KHACH_TRO);
         db.execSQL(CREATE_TABLE_PHIEU_THU);
         db.execSQL(CREATE_TABLE_USER);
+        db.execSQL(insertAdminUser);
     }
 
     @Override

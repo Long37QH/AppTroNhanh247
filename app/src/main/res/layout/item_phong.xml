@@ -46,7 +46,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="2dp"
                     android:text="DT:"
-                    android:layout_marginStart="65dp"/>
+                    android:layout_marginStart="50dp"/>
                 <TextView
                     android:id="@+id/txt_dientich"
                     android:layout_width="wrap_content"

@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.nhatro247.fragments.DoiPassFragment;
 import com.example.nhatro247.fragments.HomeFragment;
@@ -22,6 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDraweLayout;
     NavigationView navigationView;
+    TextView txt_name_user;
 
     // khai bao cac bien luu vi tri fragment
 
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // khai bao them toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,6 +56,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //anh xa menu trai bat suj kiem click item trong menu
         navigationView = findViewById(R.id.navigation_view);
+
+        // hien thị thong tin tai khoan
+        View headerView = navigationView.getHeaderView(0);
+        txt_name_user = headerView.findViewById(R.id.txt_name_user);
+
+        Intent intent = getIntent();
+        Bundle getBundle = intent.getBundleExtra("bundle_user");
+        String username = getBundle.getString("username");
+        txt_name_user.setText(username);
+
+
         navigationView.setNavigationItemSelectedListener(this);
 
         // xu ly mo menu tu fragment home
@@ -92,7 +108,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
         }else if (id == R.id.nav_dangxuat) {
-
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            // Đặt cờ để xóa stack hiện tại
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            // Kết thúc LoginActivity
+            finish();
         }
 
         // sau khi mo fragment thi dong menu
