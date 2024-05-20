@@ -13,7 +13,11 @@ public class PhieuThu {
 
     public PhieuThu() {
     }
-
+    public PhieuThu(int idPhong, int tienThu, String trangthaiphieu) {
+        this.idPhong = idPhong;
+        this.tienThu = tienThu;
+        this.trangthaiphieu = trangthaiphieu;
+    }
     public PhieuThu(int idPThu, int idKhach, int idPhong, int dienTT, int nuocTT, int tienThu, String tg_Lapphieu, String tg_ThuTien, String trangthaiphieu) {
         this.idPThu = idPThu;
         this.idKhach = idKhach;

@@ -57,6 +57,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_PHIEU_THU);
         db.execSQL(CREATE_TABLE_USER);
         db.execSQL(insertAdminUser);
+
+        // Insert default data
+        String INSERT_DEFAULT_PHONG = "INSERT INTO tbl_phong (id_phong, dientich, giaphong, sodien, giadien, sonuoc, gianuoc, trangthai) " +
+                "VALUES (1, 25, 300000, 0, 3000, 0, 9000, 'Phòng Trống')";
+        for (int i = 2; i <= 10; i++) {
+            INSERT_DEFAULT_PHONG += ", (" + i + ", 25, 300000, 0, 3000, 0, 9000, 'Phòng Trống')";
+        }
+        db.execSQL(INSERT_DEFAULT_PHONG);
+
+        String INSERT_DEFAULT_KHACH_TRO = "INSERT INTO tbl_KhachHang (id_khach, id_phong, ten_kh, sdt, ngayvao) " +
+                "VALUES (1, 1, 'Phòng Trống', 'Phòng Trống', 'Phòng Trống')";
+        for (int i = 2; i <= 10; i++) {
+            INSERT_DEFAULT_KHACH_TRO += ", (" + i + ", " + i + ", 'Phòng Trống', 'Phòng Trống', 'Phòng Trống')";
+        }
+        db.execSQL(INSERT_DEFAULT_KHACH_TRO);
     }
 
     @Override

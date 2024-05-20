@@ -6,17 +6,23 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.nhatro247.Data.DatabaseHelper;
 import com.example.nhatro247.Model.PhieuThu;
+import com.example.nhatro247.fragments.AddPhieuFragment;
+import com.example.nhatro247.fragments.LapPhieuFragment;
+import com.example.nhatro247.fragments.PhieuDetailFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PhieuThuDAO {
     private DatabaseHelper dbHelper;
-    public PhieuThuDAO(Context context){dbHelper = new DatabaseHelper(context);}
+    public PhieuThuDAO(LapPhieuFragment context){dbHelper = new DatabaseHelper(context.getContext());}
+    public PhieuThuDAO(AddPhieuFragment context1){dbHelper = new DatabaseHelper(context1.getContext());}
+    public PhieuThuDAO(PhieuDetailFragment context2){dbHelper = new DatabaseHelper(context2.getContext());}
+
     public List<PhieuThu> getAllPhieu(){
         List<PhieuThu> mListPhieu = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM tbl_PhieuThu",null);
+        Cursor cursor = db.rawQuery("SELECT * FROM tbl_PhieuThu WHERE trangthaiphieu = 'Chưa đóng tiền'",null);
         if (cursor.moveToFirst()){
             do {
                 PhieuThu phieuThu = new PhieuThu();
@@ -56,7 +62,6 @@ public class PhieuThuDAO {
 
     public void insertPhieu(PhieuThu phieuThu){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        int idPhieu = phieuThu.getIdPThu();
         int idKhach = phieuThu.getIdKhach();
         int idPhong = phieuThu.getIdPhong();
         int dienTT = phieuThu.getDienTT();
@@ -65,8 +70,8 @@ public class PhieuThuDAO {
         String tg_LapPhieu = phieuThu.getTg_Lapphieu();
         String tg_ThuTien = phieuThu.getTg_ThuTien();
         String trangthaiphieu = phieuThu.getTrangthaiphieu();
-        db.execSQL("INSERT INTO tbl_PhieuThu (id_pthu,id_khach,id_phong,dientt,nuoctt,tienthu,tg_lapphieu,tg_thu,trangthaiphieu) VALUES (?,?,?,?,?,?,?,?,?)",
-                new String[]{idPhieu + "",idKhach +"",idPhong +"",dienTT +"",nuocTT +"",tienThu +"", tg_LapPhieu, tg_ThuTien, trangthaiphieu});
+        db.execSQL("INSERT INTO tbl_PhieuThu (id_khach,id_phong,dientt,nuoctt,tienthu,tg_lapphieu,tg_thu,trangthaiphieu) VALUES (?,?,?,?,?,?,?,?)",
+                new String[]{idKhach +"",idPhong +"",dienTT +"",nuocTT +"",tienThu +"", tg_LapPhieu, tg_ThuTien, trangthaiphieu});
     }
 
     public void updatePhieu(PhieuThu phieuThu){
@@ -80,7 +85,7 @@ public class PhieuThuDAO {
         String tg_LapPhieu = phieuThu.getTg_Lapphieu();
         String tg_ThuTien = phieuThu.getTg_ThuTien();
         String trangthaiphieu = phieuThu.getTrangthaiphieu();
-        db.execSQL("UPDATE tbl_PhieuThu SET id_khach = ?, id_phong = ?, dientt = ?, nuoctt = ?, tg_lapphieu = ?, tg_thu = ?, trangthaiphieu = ? WHERE id_pthu = ?",
+        db.execSQL("UPDATE tbl_PhieuThu SET id_khach = ?, id_phong = ?, dientt = ?, nuoctt = ?,tienthu = ?, tg_lapphieu = ?, tg_thu = ?, trangthaiphieu = ? WHERE id_pthu = ?",
                 new String[]{idKhach +"",idPhong +"",dienTT +"",nuocTT +"",tienThu +"", tg_LapPhieu, tg_ThuTien, trangthaiphieu,idPhieu + ""});
     }
 

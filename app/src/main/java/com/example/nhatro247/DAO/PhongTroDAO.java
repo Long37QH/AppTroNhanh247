@@ -5,8 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.nhatro247.Data.DatabaseHelper;
 import com.example.nhatro247.Model.PhongTro;
+import com.example.nhatro247.fragments.AddPhieuFragment;
 import com.example.nhatro247.fragments.AddPhongFragment;
 import com.example.nhatro247.fragments.HomeFragment;
+import com.example.nhatro247.fragments.PhieuDetailFragment;
 import com.example.nhatro247.fragments.PhongDetailFragment;
 
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ public class PhongTroDAO {
     public PhongTroDAO(HomeFragment context1){dbHelper = new DatabaseHelper(context1.getContext());}
     public PhongTroDAO(AddPhongFragment context2){dbHelper = new DatabaseHelper(context2.getContext());}
     public PhongTroDAO(PhongDetailFragment context3){dbHelper = new DatabaseHelper(context3.getContext());}
+    public PhongTroDAO(AddPhieuFragment context4){dbHelper = new DatabaseHelper(context4.getContext());}
+    public PhongTroDAO(PhieuDetailFragment context5){dbHelper = new DatabaseHelper(context5.getContext());}
 
 
     public List<PhongTro> getAll() {

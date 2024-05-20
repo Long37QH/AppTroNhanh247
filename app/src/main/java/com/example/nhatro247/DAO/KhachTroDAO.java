@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.nhatro247.Data.DatabaseHelper;
 import com.example.nhatro247.Model.KhachTro;
 import com.example.nhatro247.fragments.AddPhongFragment;
+import com.example.nhatro247.fragments.PhieuDetailFragment;
 import com.example.nhatro247.fragments.PhongDetailFragment;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class KhachTroDAO {
     private DatabaseHelper dbHelper;
     public KhachTroDAO(AddPhongFragment context1){dbHelper = new DatabaseHelper(context1.getContext());}
     public KhachTroDAO(PhongDetailFragment context2){dbHelper = new DatabaseHelper(context2.getContext());}
+    public KhachTroDAO(PhieuDetailFragment context3){dbHelper = new DatabaseHelper(context3.getContext());}
 
     public List<KhachTro> getKhachAll(){
         List<KhachTro> mListKhach = new ArrayList<>();

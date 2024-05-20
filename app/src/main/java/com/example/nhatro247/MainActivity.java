@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame,fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }
