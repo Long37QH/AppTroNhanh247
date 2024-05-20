@@ -18,6 +18,14 @@ public class PhieuThu {
         this.tienThu = tienThu;
         this.trangthaiphieu = trangthaiphieu;
     }
+
+    public PhieuThu(int idPhong, int tienThu, String tg_ThuTien, String trangthaiphieu) {
+        this.idPhong = idPhong;
+        this.tienThu = tienThu;
+        this.tg_ThuTien = tg_ThuTien;
+        this.trangthaiphieu = trangthaiphieu;
+    }
+
     public PhieuThu(int idPThu, int idKhach, int idPhong, int dienTT, int nuocTT, int tienThu, String tg_Lapphieu, String tg_ThuTien, String trangthaiphieu) {
         this.idPThu = idPThu;
         this.idKhach = idKhach;

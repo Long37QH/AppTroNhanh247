@@ -9,6 +9,7 @@ import com.example.nhatro247.Model.PhieuThu;
 import com.example.nhatro247.fragments.AddPhieuFragment;
 import com.example.nhatro247.fragments.LapPhieuFragment;
 import com.example.nhatro247.fragments.PhieuDetailFragment;
+import com.example.nhatro247.fragments.ThongKeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class PhieuThuDAO {
     public PhieuThuDAO(LapPhieuFragment context){dbHelper = new DatabaseHelper(context.getContext());}
     public PhieuThuDAO(AddPhieuFragment context1){dbHelper = new DatabaseHelper(context1.getContext());}
     public PhieuThuDAO(PhieuDetailFragment context2){dbHelper = new DatabaseHelper(context2.getContext());}
+    public PhieuThuDAO(ThongKeFragment context3){dbHelper = new DatabaseHelper(context3.getContext());}
 
     public List<PhieuThu> getAllPhieu(){
         List<PhieuThu> mListPhieu = new ArrayList<>();
@@ -58,6 +60,50 @@ public class PhieuThuDAO {
         }
         cursor.close();
         return phieuThu;
+    }
+    public List<PhieuThu> getPhieuByDate(String date){
+        List<PhieuThu> mListPhieu = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM tbl_PhieuThu WHERE tg_lapphieu = ? AND trangthaiphieu = 'Đã thu'",new String[]{date});
+        if (cursor.moveToFirst()){
+            do {
+                PhieuThu phieuThu = new PhieuThu();
+                phieuThu.setIdPThu(cursor.getInt(0));
+                phieuThu.setIdKhach(cursor.getInt(1));
+                phieuThu.setIdPhong(cursor.getInt(2));
+                phieuThu.setDienTT(cursor.getInt(3));
+                phieuThu.setNuocTT(cursor.getInt(4));
+                phieuThu.setTienThu(cursor.getInt(5));
+                phieuThu.setTg_Lapphieu(cursor.getString(6));
+                phieuThu.setTg_ThuTien(cursor.getString(7));
+                phieuThu.setTrangthaiphieu(cursor.getString(8));
+                mListPhieu.add(phieuThu);
+            }while (cursor.moveToNext());
+        }
+        return mListPhieu;
+    }
+    public  int getTongThu(String date){
+        int tongthu = 0;
+        //List<PhieuThu> mListPhieu = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM tbl_PhieuThu WHERE tg_lapphieu = ? AND trangthaiphieu = 'Đã thu'",new String[]{date});
+        if (cursor.moveToFirst()) {
+            do {
+                PhieuThu phieuThu = new PhieuThu();
+                phieuThu.setIdPThu(cursor.getInt(0));
+                phieuThu.setIdKhach(cursor.getInt(1));
+                phieuThu.setIdPhong(cursor.getInt(2));
+                phieuThu.setDienTT(cursor.getInt(3));
+                phieuThu.setNuocTT(cursor.getInt(4));
+                phieuThu.setTienThu(cursor.getInt(5));
+                phieuThu.setTg_Lapphieu(cursor.getString(6));
+                phieuThu.setTg_ThuTien(cursor.getString(7));
+                phieuThu.setTrangthaiphieu(cursor.getString(8));
+                //mListPhieu.add(phieuThu);
+                tongthu = tongthu + phieuThu.getTienThu();
+            } while (cursor.moveToNext());
+        }
+        return tongthu;
     }
 
     public void insertPhieu(PhieuThu phieuThu){
